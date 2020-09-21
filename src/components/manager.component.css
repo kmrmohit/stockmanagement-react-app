@@ -1,0 +1,13 @@
+.manager-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  align-items: center;
+}
+
+h2 {
+  flex-direction: row;
+}
+.list-group {
+}

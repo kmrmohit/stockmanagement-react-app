@@ -39,7 +39,7 @@ export default class Login extends Component {
           Submit
         </button>
         <p className="forgot-password text-right">
-          Forgot <a href="#">password?</a>
+          Forgot <a href="google.com">password?</a>
         </p>
       </form>
     );

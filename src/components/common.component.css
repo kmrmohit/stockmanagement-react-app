@@ -1,0 +1,21 @@
+.control-screen {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+}
+.list-group {
+  flex-direction: row;
+}
+
+.list-group-item {
+  background-color: aliceblue;
+}
+
+.btn-add {
+  background-color: rgb(54, 191, 196);
+  border-style: hidden;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import CommonComponent from "./common.component";
+import "./manager.component.css";
 
 export class Product {
   constructor(name, description, cost) {
@@ -26,6 +27,14 @@ class Supplier {
   }
 }
 
+class Purchase {
+  constructor(props) {
+    this.name = props.name;
+    this.description = props.description;
+    this.cost = props.cost;
+  }
+}
+
 export default class Manager extends Component {
   constructor(props) {
     super(props);
@@ -33,8 +42,8 @@ export default class Manager extends Component {
       current: null,
       action: null,
       productsList: [],
-      orders: [],
-      suppliers: [],
+      ordersList: [],
+      suppliersList: [],
     };
   }
 
@@ -51,7 +60,7 @@ export default class Manager extends Component {
     switch (this.state.current) {
       case "Product":
         let newProd = new Product(props.name, props.description, props.cost);
-        let prodList = this.state.productsList.slice();
+        var prodList = this.state.productsList.slice();
         prodList.push(newProd);
         console.log(prodList);
         this.setState({
@@ -60,12 +69,26 @@ export default class Manager extends Component {
         break;
 
       case "Purchase":
+        let newPurchase = new Purchase(
+          props.name,
+          props.description,
+          props.cost
+        );
+        var prodList = this.state.productsList.slice();
+        prodList.push(newProd);
+        console.log(prodList);
+        this.setState({
+          productsList: prodList,
+        });
         break;
 
       case "Supplier":
         break;
 
       case "Sales":
+        break;
+
+      default:
         break;
     }
   };
@@ -76,7 +99,7 @@ export default class Manager extends Component {
     });
     switch (this.state.current) {
       case "Product":
-        let prodList = this.state.productsList.slice();
+        var prodList = this.state.productsList.slice();
         prodList[id] = obj;
         console.log(prodList);
         this.setState({
@@ -92,14 +115,17 @@ export default class Manager extends Component {
 
       case "Sales":
         break;
+
+      default:
+        break;
     }
   };
 
   render() {
     return (
-      <div class="manager-root">
-        <h2 class="text-center">Manager Screen</h2>
-        <div class="list-group list-group-horizontal">
+      <div className="manager-root">
+        <h2>Manager Screen</h2>
+        <div class="list-group">
           <button
             class="list-group-item"
             onClick={() => this.showScreen("Product")}

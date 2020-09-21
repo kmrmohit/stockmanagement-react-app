@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { render } from "@testing-library/react";
 import Manager, { Product } from "./manager.component";
+import "./common.component.css";
 
 class AddComponent extends Component {
   constructor(props) {
@@ -67,7 +68,7 @@ class AddComponent extends Component {
         </form>
         <button
           type="button"
-          class="btn btn-default"
+          class="btn-add"
           onClick={() =>
             this.props.onClick(
               new Product(
@@ -149,7 +150,7 @@ class HelpUpdateComponent extends Component {
         </div>
         <button
           type="button"
-          class="btn btn-default btn-danger"
+          class="btn-add"
           onClick={() =>
             this.props.onClick(
               step,
@@ -254,8 +255,8 @@ export default class CommonComponent extends Component {
     }
     return this.props.name ? (
       <div className="control-screen">
-        <h2 class="text-center">{this.props.name} Screen</h2>
-        <div class="list-group list-group-horizontal">
+        <h2>{this.props.name} Screen</h2>
+        <div class="list-group">
           <button class="list-group-item" onClick={() => this.showAddBox()}>
             Add {this.props.name}
           </button>
